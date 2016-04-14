@@ -1,0 +1,57 @@
+<template name="showProject">
+	<button class="btn btn-back pull-left"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header project-header">{{title}} 
+			{{#if isInRole 'Administrator'}}
+				<span class="glyphicon glyphicon-edit glyph-proj-edit" aria-hidden="true"></span> 
+				<span class="glyphicon glyphicon-remove glyph-proj-remove" aria-hidden="true"></span>
+			{{/if}}
+			</h1>
+		</div>
+	</div>
+	<!-- /.row -->
+
+	<!-- Portfolio Item Row -->
+	<div class="row">
+
+		<div class="col-md-8">
+			<a href="{{header}}" class="fancybox" rel="header">
+				<img  class="img-responsive" src="{{header}}">
+			</a>
+
+			<div class="row">
+
+				<div class="col-lg-12">
+					<h3 class="page-header">Additional Images</h3>
+				</div>
+				<div class="col-lg-12">
+					<section id="additional-images">
+						{{#each images}}
+						<a href="{{this}}" class="fancybox" rel="proj">
+							<img src="{{this}}">
+						</a>
+						{{/each}}
+					</section>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<h3>Project Description</h3>
+			{{{text}}}
+			<h3>Project Technologies</h3>
+			<ul class="tags">
+				{{#each techs}}
+				<li>{{this}}</li>
+				{{/each}}
+			</ul>
+		</div>
+
+	</div>
+	<!-- /.row -->
+
+	<!-- Related Projects Row -->
+	
+	<!-- /.row -->
+</template>

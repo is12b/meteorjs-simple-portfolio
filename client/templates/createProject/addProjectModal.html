@@ -1,0 +1,111 @@
+<template name="addProjectModal">
+  <div class="modal fade">
+    <div class="modal-dialog add-modal">
+      <div class="modal-content">
+        <form class="newProject">
+          <div class="modal-header">
+            <h4 class="modal-title">Add Project</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4">
+               <div class="form-group">
+                <label for="inputTitle">Title</label>
+                {{#if hasProject}}
+                {{#with project}}
+                <input class="form-control" id="inputTitle" value="{{title}}">
+                {{/with}}
+                {{else}}
+                <input class="form-control" id="inputTitle">
+                {{/if}}
+              </div>
+              <div class="form-group">
+                <label for="inputSubject">Subject</label>
+                {{#if hasProject}}
+                {{#with project}}
+                <input class="form-control" id="inputSubject" value="{{subject}}">
+                {{/with}}
+                {{else}}
+                <input class="form-control" id="inputSubject">
+                {{/if}}
+              </div>
+              <div class="form-group">
+                <label for="inputTags">Tags</label>
+                
+                {{#if hasProject}}
+                {{#with project}}
+                <input class="form-control" id="inputTags" type="text" value="{{techs}}">
+                {{/with}}
+                {{else}}
+                <input class="form-control" id="inputTags" type="text">
+                {{/if}}
+              </div>
+              <div class="form-group">
+                <label for="summernote">Description</label>
+                
+                {{#if hasProject}}
+                {{#with project}}
+                <div id="summernote">{{{text}}}</div>
+                {{/with}}
+                {{else}}
+                <div id="summernote"></div>
+                {{/if}}
+              </div>
+            </div>
+            <div class="col-md-8">
+              {{#with project}}
+              {{> header }}
+              
+              {{> dropzone}}
+              {{/with}}
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary pull-left" type="submit" input="submit">Save</button>
+          <button type="button" class="btn btn-default" id="close">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</template>
+
+<template name="dropzone">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Additional Images</label>
+        <div class="dropzone" data-dropzone>
+          <div class="well well-drop-zone">
+            Drop additional image(s) here to upload
+          </div>
+          <section id="images">
+            {{#each images}}
+            <img src="{{this}}" />
+            {{/each}}
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="header">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Header Image</label>
+        <div class="dropzone" data-dropzone-header>
+          <div class="well well-drop-zone">
+            Drop header image here to upload
+          </div>
+          {{#with header}}
+          <img class="img-responsive" src="{{this}}" />
+          {{/with}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

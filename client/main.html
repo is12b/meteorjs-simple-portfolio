@@ -1,0 +1,56 @@
+<template name="layout">
+   <nav class="navbar navbar-inverse navbar-default" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+        <li class="{{isActivePath '/'}}">
+            <a href="/">Projects</a>
+          </li>
+          <li class="{{isActivePath '/about'}}">
+            <a href="/about">About</a>
+          </li>
+          <li>
+            <a href="https://dk.linkedin.com/in/nick-pedersen-90603a43" target="_blank">LinkedIn</a>
+          </li>
+          <li>
+            <a class="fancypdf" href="CV.pdf">CV (Danish)</a>
+          </li>
+          {{#if isInRole 'Administrator'}}
+          <li>
+            <a id="addProject" href="#">Add Project</a>
+          </li>
+          {{/if}}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {{> loginButtons}} <!-- here -->
+        </ul>
+
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+  <div class="container body-content">
+      {{> yield}}
+  </div>
+  <hr />
+  {{> footer}}
+</template>
+
+<template name="footer">
+  <footer>
+  {{#with footer}}
+    <p>&copy; {{date}} - <a href="{{link}}" target="_blank">{{name}}</a></p>
+  {{/with}}
+  </footer>
+</template>
