@@ -67,8 +67,6 @@ Template.footer.helpers({
       link: "https://dk.linkedin.com/in/nick-pedersen-90603a43"
     };
 
-    console.log("footer", footer);
-
     return footer;
   }
 });
@@ -85,7 +83,6 @@ Template.layout.events({
     });
 	},
   "click .fancypdf": function(e){
-    console.log("this", e);
     $.fancybox({
       type: 'html',
       autoSize: false,

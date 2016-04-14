@@ -83,7 +83,6 @@ Template.showProjects.events({
 
 Template.header.events({
 	'dropped .dropzone': function(e) {
-		console.log("Header");
 		e.preventDefault();
 		var files = e.originalEvent.dataTransfer.files;
 		var reader = new FileReader();
@@ -101,7 +100,6 @@ Template.header.events({
 
 Template.dropzone.events({
 	'dropped .dropzone': function(e) {
-		console.log("Normal");
 		e.preventDefault();
 		var files = e.originalEvent.dataTransfer.files;
 		var reader = new FileReader();
@@ -124,7 +122,6 @@ Template.addProjectModal.events({
 		var title = event.target.inputTitle.value;
 		var subject = event.target.inputSubject.value;
 		var techs = event.target.inputTags.value.split(',');
-		console.log("techs", techs);
 		var markupStr = $('#summernote').summernote('code');
 
 		if(typeof project !== 'undefined'){
@@ -151,9 +148,7 @@ Template.addProjectModal.events({
 // ######################################
 
 PushImages = function (res, imgs, headerImg){
-	console.log("res", res);
 	imgs.forEach(function(img){
-		console.log("res", res);
 		Meteor.call("pushImageToProject", res, img);
 	});
 
