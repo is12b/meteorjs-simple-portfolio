@@ -83,7 +83,12 @@
           </div>
           <section id="images">
             {{#each images}}
-            <img src="{{this}}" />
+            <div class="dropzone-div">
+              <img class="dropzone-img" src="{{this}}" />
+              <div class='description'>  
+                <p class='description_content'>Delete Image</p>  
+               </div>
+            </div>
             {{/each}}
           </section>
         </div>
@@ -101,9 +106,16 @@
           <div class="well well-drop-zone">
             Drop header image here to upload
           </div>
+          <section id="images">
           {{#with header}}
-          <img class="img-responsive" src="{{this}}" />
+          <div class="dropzone-div">
+              <img class="dropzone-img" src="{{this}}" />
+              <div class='description'>  
+                <p class='description_content'>Delete Image</p>  
+               </div>
+            </div>
           {{/with}}
+          </section>
         </div>
       </div>
     </div>

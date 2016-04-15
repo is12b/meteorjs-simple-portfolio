@@ -95,6 +95,22 @@ Template.header.events({
 			dep.changed();
 		}
 		reader.readAsDataURL(files[0]);
+	},
+	'click .dropzone-div': function(){
+		var str = this.valueOf();
+		if(typeof project !== 'undefined'){
+			var index = project.images.indexOf(str);
+			if(index > -1){
+				project.header = "";
+			}
+		} else {
+			var index = images.indexOf(str);
+			if(index > -1){
+				header = "";
+			}
+		}
+
+		dep.changed();
 	}
 });
 
@@ -112,6 +128,23 @@ Template.dropzone.events({
 			dep.changed();
 		}
 		reader.readAsDataURL(files[0]);
+	},
+	'click .dropzone-div': function(){
+		var str = this.valueOf();
+		if(typeof project !== 'undefined'){
+			var index = project.images.indexOf(str);
+			if(index > -1){
+				project.images.splice(index, 1);
+			}
+		} else {
+			var index = images.indexOf(str);
+			console.log("index", index);
+			if(index > -1){
+				images.splice(index, 1);
+			}
+		}
+
+		dep.changed();
 	}
 });
 
@@ -140,6 +173,18 @@ Template.addProjectModal.events({
 		images = [];
 		project = undefined;
 		Modal.hide(template);
+	},
+	'mouseenter .dropzone-div': function(event, template){
+		var evt = $(event.currentTarget).find("div");
+		if(evt.is(':hidden')){
+			evt.fadeToggle();
+		}
+	},
+	'mouseleave .dropzone-div': function(event, template){
+		var evt = $(event.currentTarget).find("div");
+		if(evt.is(':visible')){
+			evt.fadeToggle();
+		}
 	}
 });
 
