@@ -2,5 +2,5 @@
 Very Simple Meteorjs Portfolio
 
 TODO:
- - Delete / Edit Pictures
+ - Delete / Edit Pictures (Done, needs testing)
  - Crop Image
