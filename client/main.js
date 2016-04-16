@@ -36,6 +36,7 @@ Router.route('/about', {
   template: 'about'
 });
 
+Router.route('/project/:_id/:slug?', {
   template: 'showProject',
   data: function(){ return Projects.findOne({_id: this.params._id}); },
   onBeforeAction: function(){
@@ -43,6 +44,7 @@ Router.route('/about', {
     if(data){
       var realUrl = "/" + data._id + "/" + slugify(data.title);
       if(this.url.indexOf(realUrl) < 0){
+        Router.go('/project/' + data._id + "/" + slugify(data.title), {}, {replaceState: true});
       }
     }
 
