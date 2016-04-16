@@ -15,11 +15,11 @@
   <div class="row">
     {{#each projects}}
     <div class="col-md-6 portfolio-item">
-      <a href="/show/{{_id}}">
+      <a href="/project/{{_id}}">
         <img class="img-responsive" width="700" height="400" src="{{header}}" alt="">
       </a>
       <h3>
-        <a class="openProject" href="/show/{{_id}}">{{title}}</a> 
+        <a class="openProject" href="/project/{{_id}}">{{title}}</a> 
         {{#if isInRole 'Administrator'}}
           <span class="glyphicon glyphicon-edit glyph-proj-edit" aria-hidden="true"></span> 
           <span class="glyphicon glyphicon-remove glyph-proj-remove" aria-hidden="true"></span>

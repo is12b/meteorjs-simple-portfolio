@@ -36,11 +36,18 @@ Router.route('/about', {
   template: 'about'
 });
 
-Router.route('/show/:_id', {
   template: 'showProject',
-  data: function(){
-   return Projects.findOne({_id: this.params._id});
- }
+  data: function(){ return Projects.findOne({_id: this.params._id}); },
+  onBeforeAction: function(){
+    var data = this.data();
+    if(data){
+      var realUrl = "/" + data._id + "/" + slugify(data.title);
+      if(this.url.indexOf(realUrl) < 0){
+      }
+    }
+
+    this.next();
+  }
 });
 
 // ###############################

@@ -2,3 +2,4 @@
 .meteor/meteorite
 public/CV.pdf
 settings.json
+node_modules/
